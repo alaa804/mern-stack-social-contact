@@ -52,7 +52,7 @@ router.post('/', [ auth , [
 });
 
 // @route  PUT api/contacts/:id
-// @desc   get ALL users contact
+// @desc  Update contact
 // @access Private
 router.put('/:id', auth, async (req, res) => {
     const {name, email, phone, type} = req.body;
@@ -81,8 +81,8 @@ router.put('/:id', auth, async (req, res) => {
       );
   
       res.json(contact);
-    } catch (err) {
-      console.error(er.message);
+    } catch (error) {
+      console.error(error.message);
       res.status(500).send('Server Error');
     }
   });
